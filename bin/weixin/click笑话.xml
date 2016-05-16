@@ -1,0 +1,8 @@
+﻿<xml>
+  <ToUserName><![CDATA[{{FromUserName}}]]></ToUserName>
+  <FromUserName><![CDATA[{{ToUserName}}]]></FromUserName>
+  <CreateTime>{{CreateTime}}</CreateTime>
+  <MsgId>{{MsgId}}</MsgId>  
+  <MsgType><![CDATA[text]]></MsgType>
+  <Content><![CDATA[谢谢您点击笑话菜单]]></Content>
+</xml>

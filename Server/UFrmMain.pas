@@ -22,6 +22,7 @@ type
     chk_1: TCheckBox;
     chk_2: TCheckBox;
     chk_3: TCheckBox;
+    chk_4: TCheckBox;
     procedure btn_1Click(Sender: TObject);
     procedure btn_2Click(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -46,6 +47,7 @@ begin
   gSysConfig.Value['AutoStart'] := chk_3.Checked;
   gSysConfig.Value['RemoteDb'] := chk_1.Checked;
   gSysConfig.Value['WebSocket'] := chk_2.Checked;
+  gSysConfig.Value['WeChat'] := chk_4.Checked;
   DmSys.StartSrv;
 end;
 
@@ -72,6 +74,7 @@ begin
   chk_1.Checked := gSysConfig.Value['RemoteDb'];
   chk_2.Checked := gSysConfig.Value['WebSocket'];
   chk_3.Checked := gSysConfig.Value['AutoStart'];
+  chk_4.Checked := gSysConfig.Value['WeChat'];
   if chk_3.Checked then
     DmSys.StartSrv;
 end;

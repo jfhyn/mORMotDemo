@@ -1,6 +1,6 @@
 object FrmMain: TFrmMain
-  Left = 699
-  Top = 260
+  Left = 528
+  Top = 244
   Width = 265
   Height = 196
   Caption = 'mORMot Server'
@@ -45,6 +45,14 @@ object FrmMain: TFrmMain
       Height = 17
       Caption = 'AutoStart'
       TabOrder = 2
+    end
+    object chk_4: TCheckBox
+      Left = 16
+      Top = 88
+      Width = 97
+      Height = 17
+      Caption = 'WeChat'
+      TabOrder = 3
     end
   end
   object btn_1: TButton
