@@ -6,7 +6,8 @@ uses
   SysUtils,
   Classes,
   SynCommons,
-  mORMot,mORMotDB;
+  mORMot,
+  mORMotDB;
 
 type
   TSQLRecordPeople = class(TSQLRecord)
