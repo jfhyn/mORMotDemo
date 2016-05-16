@@ -1,0 +1,7 @@
+{
+	"Kind": "TSQLDBSQLite3ConnectionProperties",
+	"ServerName": "test.db3",
+	"DatabaseName": "",
+	"User": "",
+	"Password": ""
+}
