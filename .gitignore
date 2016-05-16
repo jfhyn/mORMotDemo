@@ -1,4 +1,5 @@
 *.exe
+*.ddp
 *.dcu
 *.log
 *.ldb

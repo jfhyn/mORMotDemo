@@ -20,6 +20,7 @@ uses
   SynOleDB,
   SynDBZeos,
   SynDBSQLite3,
+  SynMustache,
   SynSQLite3Static;
 
 type
@@ -65,10 +66,12 @@ uses
 function TMORMotHttpServer.Request(Ctxt: THttpServerRequest): cardinal;
 var
   FileName: TFileName;
+  SynMustacheTemplate: TSynMustache;
 begin
   if (Ctxt.Method = 'GET') and (Ctxt.URL = '/') then
   begin
     FileName := ExeVersion.ProgramFilePath + 'www\index.html';
+    SynMustacheTemplate := TSynMustache.Parse(AnyTextFileToString(FileName));
     Ctxt.OutContent := StringToUTF8(FileName);
     Ctxt.OutContentType := HTTP_RESP_STATICFILE;
     Result := 200;
@@ -93,7 +96,7 @@ begin
   if not gServerStart then
   begin
     gProps := TSQLDBConnectionProperties.CreateFromFile(ExeVersion.ProgramFilePath
-      + 'dbconfig.json');
+      + 'db.config');
 
     fModel := TSQLModel.Create([TSQLRecordPeople]);
     VirtualTableExternalRegisterAll(fModel, gProps);
@@ -157,7 +160,7 @@ end;
 
 procedure TDmSys.DataModuleCreate(Sender: TObject);
 begin
-  gSysConfig.Init('{}');
+  gSysConfig.Init(AnyTextFileToRawUTF8('sys.config'));
 end;
 
 end.
