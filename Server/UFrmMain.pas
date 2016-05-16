@@ -21,9 +21,11 @@ type
     btn_2: TButton;
     chk_1: TCheckBox;
     chk_2: TCheckBox;
+    chk_3: TCheckBox;
     procedure btn_1Click(Sender: TObject);
     procedure btn_2Click(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,6 +43,7 @@ uses
 
 procedure TFrmMain.btn_1Click(Sender: TObject);
 begin
+  gSysConfig.Value['AutoStart'] := chk_3.Checked;
   gSysConfig.Value['RemoteDb'] := chk_1.Checked;
   gSysConfig.Value['WebSocket'] := chk_2.Checked;
   DmSys.StartSrv;
@@ -54,6 +57,23 @@ end;
 procedure TFrmMain.FormDestroy(Sender: TObject);
 begin
   DmSys.StopSrv;
+  with TStringList.Create do
+  try
+    Text := gSysConfig.ToJSON;
+    SaveToFile('sys.config');
+  finally
+    Free;
+  end;
+
+end;
+
+procedure TFrmMain.FormCreate(Sender: TObject);
+begin
+  chk_1.Checked := gSysConfig.Value['RemoteDb'];
+  chk_2.Checked := gSysConfig.Value['WebSocket'];
+  chk_3.Checked := gSysConfig.Value['AutoStart'];
+  if chk_3.Checked then
+    DmSys.StartSrv;
 end;
 
 end.

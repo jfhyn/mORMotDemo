@@ -3,5 +3,6 @@
 *.dcu
 *.log
 *.ldb
+*.bpg
 *.bak
 *.~*

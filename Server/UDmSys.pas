@@ -72,8 +72,8 @@ begin
   begin
     FileName := ExeVersion.ProgramFilePath + 'www\index.html';
     SynMustacheTemplate := TSynMustache.Parse(AnyTextFileToString(FileName));
-    Ctxt.OutContent := StringToUTF8(FileName);
-    Ctxt.OutContentType := HTTP_RESP_STATICFILE;
+    Ctxt.OutContent := SynMustacheTemplate.Render(_JsonFast(gSysConfig.ToJSON));
+    Ctxt.OutContentType := 'text/html;charset=utf-8';
     Result := 200;
   end
   else if (Ctxt.Method = 'GET') and IdemPChar(pointer(Ctxt.URL), '/STATIC/') and
@@ -112,7 +112,7 @@ begin
     else
       fHttpServer := TMORMotHttpServer.Create('80', [fServer], '+', useHttpApi);
     if gSysConfig.Value['RemoteDb'] then
-      fRemoteDb := TSQLDBServerHttpApi.Create(gProps, 'remote');
+      fRemoteDb := TSQLDBServerHttpApi.Create(gProps, 'remote','mORMot','mORMot');
     gServerStart := True;
   end;
 end;

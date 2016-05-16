@@ -11,6 +11,7 @@ object FrmMain: TFrmMain
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
@@ -36,6 +37,14 @@ object FrmMain: TFrmMain
       Height = 17
       Caption = 'WebSocket'
       TabOrder = 1
+    end
+    object chk_3: TCheckBox
+      Left = 16
+      Top = 64
+      Width = 97
+      Height = 17
+      Caption = 'AutoStart'
+      TabOrder = 2
     end
   end
   object btn_1: TButton
