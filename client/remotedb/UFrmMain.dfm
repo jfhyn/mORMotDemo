@@ -1,8 +1,8 @@
 object FrmMain: TFrmMain
-  Left = 361
-  Top = 200
+  Left = 365
+  Top = 145
   Width = 681
-  Height = 523
+  Height = 507
   Caption = 'FrmMain'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -11,14 +11,15 @@ object FrmMain: TFrmMain
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object dbgrd_1: TDBGrid
     Left = 0
-    Top = 128
+    Top = 97
     Width = 665
-    Height = 357
-    Align = alBottom
+    Height = 353
+    Align = alClient
     DataSource = ds_1
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -74,15 +75,36 @@ object FrmMain: TFrmMain
       TabOrder = 2
       OnClick = btn_2Click
     end
+    object btn_3: TButton
+      Left = 552
+      Top = 40
+      Width = 49
+      Height = 25
+      Caption = '5000'
+      TabOrder = 3
+      OnClick = btn_3Click
+    end
+    object btn_4: TButton
+      Left = 608
+      Top = 40
+      Width = 49
+      Height = 25
+      Anchors = [akTop, akRight]
+      Caption = 'clear'
+      TabOrder = 4
+      OnClick = btn_2Click
+    end
+  end
+  object stat_1: TStatusBar
+    Left = 0
+    Top = 450
+    Width = 665
+    Height = 19
+    Panels = <>
+    SimplePanel = True
   end
   object ds_1: TDataSource
     Left = 16
     Top = 152
-  end
-  object Cds_1: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 584
-    Top = 104
   end
 end

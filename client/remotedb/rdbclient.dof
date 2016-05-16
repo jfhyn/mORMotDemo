@@ -121,9 +121,3 @@ Locale=2052
 CodePage=936
 [Excluded Packages]
 d:\program\delphi7\Bin\direct70.bpl=Borland Delphi Direct IDE Package
-[HistoryLists\hlUnitAliases]
-Count=1
-Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
-[HistoryLists\hlOutputDirectorry]
-Count=1
-Item0=..\bin

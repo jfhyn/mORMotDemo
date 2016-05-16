@@ -41,7 +41,7 @@ type
     fModel: TSQLModel;
     fServer: TSQLRestServerDB;
     fHttpServer: TMORMotHttpServer;
-    fRemoteDb: TSQLDBServerHttpApi;
+    fRemoteDb: TSQLDBServerSockets;
     fprotocol: TWebSocketProtocolEcho;
   public
     { Public declarations }
@@ -112,7 +112,8 @@ begin
     else
       fHttpServer := TMORMotHttpServer.Create('80', [fServer], '+', useHttpApi);
     if gSysConfig.Value['RemoteDb'] then
-      fRemoteDb := TSQLDBServerHttpApi.Create(gProps, 'remote','mORMot','mORMot');
+      fRemoteDb := TSQLDBServerSockets.Create(gProps, 'remote', '8092', 'mORMot',
+        'mORMot');
     gServerStart := True;
   end;
 end;

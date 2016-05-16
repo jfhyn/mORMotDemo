@@ -1,6 +1,6 @@
 object FrmMain: TFrmMain
-  Left = 774
-  Top = 168
+  Left = 699
+  Top = 260
   Width = 265
   Height = 196
   Caption = 'mORMot Server'
